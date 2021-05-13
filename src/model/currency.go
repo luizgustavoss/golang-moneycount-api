@@ -6,7 +6,7 @@ type Currency struct {
 	Code   string    `json:"code"`
 	Name   string    `json:"name"`
 	Symbol string    `json:"symbol"`
-	Values []float64 `json:"-"`
+	Values []float64 `json:"values"`
 }
 
 // Validate check if currency has all required attributes
