@@ -25,5 +25,4 @@ func GetCurrencyFilter(w http.ResponseWriter, r *http.Request){
 	currencyFilter := model.NewCurrencyFilter(currency)
 
 	responses.JsonResponse(w, http.StatusOK, currencyFilter)
-
 }

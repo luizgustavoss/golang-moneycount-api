@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-var currencyFilterRoutes = []Route{
+var currencyFiltersRoutes = []Route{
 	{
 		URI: "/currency-filters",
 		Method: http.MethodGet,
