@@ -1,4 +1,4 @@
-package persistence
+package services
 
 import (
 	"encoding/json"
@@ -6,12 +6,8 @@ import (
 	"moneycount-api/src/model"
 )
 
-type CurrencyRepository struct {
-
-}
-
 // ListCurrencies lists available currencies
-func (repository CurrencyRepository) ListCurrencies() ([]model.Currency, error) {
+func ListCurrencies() ([]model.Currency, error) {
 
 	var currencies []model.Currency
 
@@ -23,11 +19,11 @@ func (repository CurrencyRepository) ListCurrencies() ([]model.Currency, error) 
 }
 
 // GetCurrencyByCode get a currency by its code
-func (repository CurrencyRepository) GetCurrencyByCode(code string) (model.Currency, error) {
+func GetCurrencyByCode(code string) (model.Currency, error) {
 
 	var currency model.Currency
 
-	currencies, error := repository.ListCurrencies()
+	currencies, error := ListCurrencies()
 	if error != nil{
 		return currency, error
 	}
@@ -39,11 +35,6 @@ func (repository CurrencyRepository) GetCurrencyByCode(code string) (model.Curre
 		}
 	}
 	return currency, nil
-}
-
-// NewCurrencyRepository factory
-func NewCurrencyRepository() *CurrencyRepository {
-	return &CurrencyRepository{}
 }
 
 func readCurrencyFileContent() string {

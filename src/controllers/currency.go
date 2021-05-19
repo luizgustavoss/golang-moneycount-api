@@ -2,17 +2,15 @@ package controllers
 
 import (
 	"github.com/gorilla/mux"
-	"moneycount-api/src/persistence"
 	"moneycount-api/src/responses"
+	"moneycount-api/src/services"
 	"net/http"
 )
 
 // Get all available currencies
 func GetAllCurrencies(w http.ResponseWriter, r *http.Request){
 
-	repository := persistence.NewCurrencyRepository()
-
-	currencies, error := repository.ListCurrencies()
+	currencies, error := services.ListCurrencies()
 	if error != nil {
 		responses.ErrorResponse(w, http.StatusInternalServerError, error)
 		return
@@ -27,9 +25,7 @@ func GetCurrencyByCode(w http.ResponseWriter, r *http.Request){
 	pathParameters := mux.Vars(r)
 	code := pathParameters["code"]
 
-	repository := persistence.NewCurrencyRepository()
-
-	currency, error := repository.GetCurrencyByCode(code)
+	currency, error := services.GetCurrencyByCode(code)
 	if error != nil {
 		responses.ErrorResponse(w, http.StatusInternalServerError, error)
 		return

@@ -2,16 +2,13 @@ package services
 
 import (
 	"moneycount-api/src/model"
-	"moneycount-api/src/persistence"
 )
-
-
 
 // CreateEventEntryMap creates an EventEntryMap based on provided EventEntry info
 func CreateEventEntryMap(command model.EventEntryCommand) (model.EventEntryMap, error){
 
 	var eventEntryMap model.EventEntryMap
-	var currency, error = persistence.NewCurrencyRepository().GetCurrencyByCode(command.Filter.CurrencyCode)
+	var currency, error = GetCurrencyByCode(command.Filter.CurrencyCode)
 	if error != nil {
 		return eventEntryMap, error
 	}
@@ -26,12 +23,11 @@ func CreateEventEntryMap(command model.EventEntryCommand) (model.EventEntryMap, 
 	return eventEntryMap, nil
 }
 
-
 // CreateEventMap creates an EventMap based on provided Event info
 func CreateEventMap(command model.EventCommand) (model.EventMap, error){
 
 	var eventMap model.EventMap
-	var currency, error = persistence.NewCurrencyRepository().GetCurrencyByCode(command.Filter.CurrencyCode)
+	var currency, error = GetCurrencyByCode(command.Filter.CurrencyCode)
 	if error != nil {
 		return eventMap, error
 	}
