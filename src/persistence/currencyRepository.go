@@ -32,7 +32,7 @@ func (repository CurrencyRepository) GetCurrencyByCode(code string) (model.Curre
 		return currency, error
 	}
 
-	for _, c := range currencies{
+	for _, c := range currencies {
 		if c.Code == code{
 			currency = c
 			break

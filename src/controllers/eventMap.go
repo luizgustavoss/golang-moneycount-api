@@ -18,13 +18,13 @@ func CreateEventMap(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	var event model.EventCommand
-	if error = json.Unmarshal(requestBody, &event); error != nil {
+	var command model.EventCommand
+	if error = json.Unmarshal(requestBody, &command); error != nil {
 		responses.ErrorResponse(w, http.StatusBadRequest, error)
 		return
 	}
 
-	eventMap, error := services.CreateEventMap(event)
+	eventMap, error := services.CreateEventMap(command)
 	if error != nil {
 		responses.ErrorResponse(w, http.StatusBadRequest, error)
 		return

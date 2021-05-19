@@ -5,13 +5,14 @@ import (
 )
 
 type CurrencyFilter struct {
-	Values map[string]bool `json:"values"`
+	CurrencyCode string          `json:"currency_code"`
+	Values       map[string]bool `json:"values"`
 }
 
 func NewCurrencyFilter(currency Currency) CurrencyFilter {
 	var values = make(map[string]bool)
-	for _, v := range currency.Values{
+	for _, v := range currency.Values {
 		values[fmt.Sprintf("%.2f", v)] = true
 	}
-	return CurrencyFilter{values}
+	return CurrencyFilter{ currency.Code, values}
 }
