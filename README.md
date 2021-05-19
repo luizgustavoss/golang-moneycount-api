@@ -48,6 +48,78 @@ $ go run main.go
 
 Once you have run the project, you can access the available endpoints:
 
-http://localhost:5000/currencies
+GET http://localhost:5000/currencies
 
-http://localhost:5000/currencies/{code}
+GET http://localhost:5000/currencies/{code}
+
+POST http://localhost:5000/event-entries-maps
+
+Body example:
+
+```json
+{
+	"event_entry" : {
+		"code" : "12345678",
+        "description" : "Supplier Payment May 2021",
+        "value" : 377.98
+	},
+	"filter" : {
+		"currency_code" : "BRL",
+        "values" : {
+            "0.05" : true,
+            "0.10" : true,
+            "0.25" : true,
+            "0.50" : true,
+            "1.00" : true,
+            "10.00" : true,
+            "100.00" : true,
+            "2.00" : true,
+            "20.00" : true,
+            "5.00" : true,
+            "50.00" : true
+            }
+	}	
+}
+```
+
+POST http://localhost:5000/event-maps
+
+Body example:
+
+```json
+{
+	"event" : {
+		"code" : "SUP2021-05",
+        "description" : "Suppliers Payment May 2021",
+        "entries" : [
+            {
+                "code" : "SUP2021-05-0001",
+                "description" : "Supplier 0001 May 2021",
+                "value" : 129.33
+            },
+            {
+                "code" : "SUP2021-05-0006",
+                "description" : "Supplier 0006 May 2021",
+                "value" : 336.45
+            }
+        ]
+	},
+	"filter" : {
+		"currency_code" : "BRL",
+        "values" : {
+            "0.05" : true,
+            "0.10" : true,
+            "0.25" : true,
+            "0.50" : true,
+            "1.00" : true,
+            "10.00" : true,
+            "100.00" : true,
+            "2.00" : true,
+            "20.00" : true,
+            "5.00" : true,
+            "50.00" : true
+            }
+	}	
+}
+
+```
