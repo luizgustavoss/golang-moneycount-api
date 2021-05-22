@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gorilla/mux"
-	"moneycount-api/src/middlewares"
+	"moneycount-api/src/infrastructure/middlewares"
 	"net/http"
 )
 

@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gorilla/mux"
-	"moneycount-api/src/router/routes"
+	"moneycount-api/src/infrastructure/router/routes"
 )
 
 // Generates a router with configured routes

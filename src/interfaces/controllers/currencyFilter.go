@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"moneycount-api/src/model"
+	"moneycount-api/src/application/services"
+	"moneycount-api/src/domain/model"
 	"moneycount-api/src/responses"
-	"moneycount-api/src/services"
 	"net/http"
 	"strings"
 )

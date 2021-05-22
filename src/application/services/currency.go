@@ -3,7 +3,7 @@ package services
 import (
 	"encoding/json"
 	"io/ioutil"
-	"moneycount-api/src/model"
+	"moneycount-api/src/domain/model"
 )
 
 // ListCurrencies lists available currencies

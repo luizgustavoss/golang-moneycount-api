@@ -3,14 +3,14 @@ package controllers
 import (
 	"encoding/json"
 	"io/ioutil"
-	"moneycount-api/src/model"
+	"moneycount-api/src/application/services"
+	"moneycount-api/src/domain/model"
 	"moneycount-api/src/responses"
-	"moneycount-api/src/services"
 	"net/http"
 )
 
-// CreateEventMap creates a currency map for the event based on a filter
-func CreateEventMap(w http.ResponseWriter, r *http.Request){
+// CreateEventEntryMap creates a currency map for the event entry based on a filter
+func CreateEventEntryMap(w http.ResponseWriter, r *http.Request){
 
 	requestBody, error := ioutil.ReadAll(r.Body)
 	if error != nil {
@@ -18,17 +18,17 @@ func CreateEventMap(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	var command model.EventCommand
+	var command model.EventEntryCommand
 	if error = json.Unmarshal(requestBody, &command); error != nil {
 		responses.ErrorResponse(w, http.StatusBadRequest, error)
 		return
 	}
 
-	eventMap, error := services.CreateEventMap(command)
+	eventEntryMap, error := services.CreateEventEntryMap(command)
 	if error != nil {
 		responses.ErrorResponse(w, http.StatusBadRequest, error)
 		return
 	}
 
-	responses.JsonResponse(w, http.StatusCreated, eventMap)
+	responses.JsonResponse(w, http.StatusCreated, eventEntryMap)
 }
