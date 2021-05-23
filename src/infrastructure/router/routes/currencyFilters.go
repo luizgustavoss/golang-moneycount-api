@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"moneycount-api/src/interfaces/controllers"
+	"moneycount-api/src/interfaces/rest/controllers"
 	"net/http"
 )
 

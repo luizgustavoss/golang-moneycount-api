@@ -3,10 +3,10 @@ package resources
 import "moneycount-api/src/domain/model"
 
 type EventEntryMapResource struct {
-	CurrencyCode string      `json:"currency_code"`
-	Code         string      `json:"code"`
-	Description  string      `json:"description"`
-	Value        float64     `json:"value"`
+	CurrencyCode string              `json:"currency_code"`
+	Code         string              `json:"code"`
+	Description  string              `json:"description"`
+	Value        float64             `json:"value"`
 	CurrencyMap  CurrencyMapResource `json:"currency_map"`
 }
 

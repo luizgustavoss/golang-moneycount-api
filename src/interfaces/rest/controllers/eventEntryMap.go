@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"moneycount-api/src/application/services"
-	"moneycount-api/src/interfaces/resources"
-	"moneycount-api/src/interfaces/responses"
+	"moneycount-api/src/interfaces/rest/resources"
+	"moneycount-api/src/interfaces/rest/responses"
 	"net/http"
 )
 

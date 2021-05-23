@@ -3,9 +3,9 @@ package resources
 import "moneycount-api/src/domain/model"
 
 type EventResource struct {
-	Code        string                 `json:"code"`
-	Description string                 `json:"description"`
-	Entries     []EventEntryResource   `json:"entries"`
+	Code        string               `json:"code"`
+	Description string               `json:"description"`
+	Entries     []EventEntryResource `json:"entries"`
 }
 
 // NewEventFromEventResource creates a new Event model based on EventResource
