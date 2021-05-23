@@ -2,8 +2,8 @@ package services
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"moneycount-api/src/domain/model"
+	"moneycount-api/src/infrastructure/services"
 )
 
 // ListCurrencies lists available currencies
@@ -11,7 +11,7 @@ func ListCurrencies() ([]model.Currency, error) {
 
 	var currencies []model.Currency
 
-	if error := json.Unmarshal([]byte(readCurrencyFileContent()), &currencies); error != nil {
+	if error := json.Unmarshal([]byte(services.ReadCurrencyFileContent()), &currencies); error != nil {
 		return nil, error
 	}
 
@@ -37,7 +37,3 @@ func GetCurrencyByCode(code string) (model.Currency, error) {
 	return currency, nil
 }
 
-func readCurrencyFileContent() string {
-	fileData, _ := ioutil.ReadFile("resources/currencies.json")
-	return string(fileData)
-}
