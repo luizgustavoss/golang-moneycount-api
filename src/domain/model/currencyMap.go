@@ -33,14 +33,12 @@ func (c *CurrencyMap) Build(value float64, currency Currency, filter CurrencyFil
 		if filter.Values[key] {
 			count := c.RemainingValue / v
 			c.Map[key] = int32(math.Trunc(count))
-			c.RemainingValue = math.Mod(c.RemainingValue, v)
+			if r, error := round(math.Mod(c.RemainingValue, v)); error == nil {
+				c.RemainingValue = r
+			} else{
+				return error
+			}
 		}
-	}
-
-	if r, error := strconv.ParseFloat(fmt.Sprintf("%.2f", c.RemainingValue), 64); error == nil {
-		c.RemainingValue = r
-	} else{
-		return error
 	}
 
 	return nil
@@ -58,4 +56,12 @@ func (c *CurrencyMap) Add(currencyMap CurrencyMap) {
 
 func NewCurrencyMap() CurrencyMap {
 	return CurrencyMap{make(map[string]int32), 0, 0}
+}
+
+func round(value float64) (float64, error) {
+	if value, error := strconv.ParseFloat(fmt.Sprintf("%.4f", value), 64); error == nil {
+		return value, nil
+	} else{
+		return value, error
+	}
 }
