@@ -86,20 +86,53 @@ Response body example:
 Response body example:
 ```json
 {
-    "currency_code": "BRL",
-    "values": {
-        "0.05": true,
-        "0.10": true,
-        "0.25": true,
-        "0.50": true,
-        "1.00": true,
-        "10.00": true,
-        "100.00": true,
-        "2.00": true,
-        "20.00": true,
-        "5.00": true,
-        "50.00": true
+  "currency_code": "BRL",
+  "values": [
+    {
+      "currency_value": "0.10",
+      "should_use": true
+    },
+    {
+      "currency_value": "0.50",
+      "should_use": true
+    },
+    {
+      "currency_value": "1.00",
+      "should_use": true
+    },
+    {
+      "currency_value": "2.00",
+      "should_use": true
+    },
+    {
+      "currency_value": "10.00",
+      "should_use": true
+    },
+    {
+      "currency_value": "20.00",
+      "should_use": true
+    },
+    {
+      "currency_value": "100.00",
+      "should_use": true
+    },
+    {
+      "currency_value": "0.05",
+      "should_use": true
+    },
+    {
+      "currency_value": "0.25",
+      "should_use": true
+    },
+    {
+      "currency_value": "5.00",
+      "should_use": true
+    },
+    {
+      "currency_value": "50.00",
+      "should_use": true
     }
+  ]
 }
 ```
 
@@ -116,19 +149,52 @@ Request body example:
   },
   "filter" : {
     "currency_code" : "BRL",
-    "values" : {
-      "0.05" : true,
-      "0.10" : true,
-      "0.25" : true,
-      "0.50" : true,
-      "1.00" : true,
-      "10.00" : true,
-      "100.00" : true,
-      "2.00" : true,
-      "20.00" : true,
-      "5.00" : true,
-      "50.00" : true
-    }
+    "values": [
+      {
+        "currency_value": "1.00",
+        "should_use": true
+      },
+      {
+        "currency_value": "2.00",
+        "should_use": true
+      },
+      {
+        "currency_value": "20.00",
+        "should_use": true
+      },
+      {
+        "currency_value": "50.00",
+        "should_use": true
+      },
+      {
+        "currency_value": "0.05",
+        "should_use": true
+      },
+      {
+        "currency_value": "0.10",
+        "should_use": true
+      },
+      {
+        "currency_value": "0.25",
+        "should_use": true
+      },
+      {
+        "currency_value": "0.50",
+        "should_use": true
+      },
+      {
+        "currency_value": "5.00",
+        "should_use": true
+      },
+      {
+        "currency_value": "10.00",
+        "should_use": true
+      },
+      {
+        "currency_value": "100.00",
+        "should_use": true
+      }
+    ]
   }
 }
 ```
@@ -136,27 +202,27 @@ Request body example:
 Response body example:
 ```json
 {
-    "currency_code": "BRL",
-    "code": "12345678",
-    "description": "12345678",
-    "value": 377.98,
-    "currency_map": {
-        "map": {
-            "0.05": 0,
-            "0.10": 2,
-            "0.25": 1,
-            "0.50": 1,
-            "1.00": 0,
-            "10.00": 0,
-            "100.00": 3,
-            "2.00": 1,
-            "20.00": 1,
-            "5.00": 1,
-            "50.00": 1
-        },
-        "remaining_value": 0.03,
-        "total_value": 377.98
-    }
+  "currency_code": "BRL",
+  "code": "12345678",
+  "description": "12345678",
+  "value": 377.98,
+  "currency_map": {
+    "map": {
+      "0.05": 0,
+      "0.10": 2,
+      "0.25": 1,
+      "0.50": 1,
+      "1.00": 0,
+      "10.00": 0,
+      "100.00": 3,
+      "2.00": 1,
+      "20.00": 1,
+      "5.00": 1,
+      "50.00": 1
+    },
+    "remaining_value": 0.03,
+    "total_value": 377.98
+  }
 }
 ```
 
@@ -183,21 +249,55 @@ Request body example:
   },
   "filter" : {
     "currency_code" : "BRL",
-    "values" : {
-      "0.05" : true,
-      "0.10" : true,
-      "0.25" : true,
-      "0.50" : true,
-      "1.00" : true,
-      "10.00" : true,
-      "100.00" : true,
-      "2.00" : true,
-      "20.00" : true,
-      "5.00" : true,
-      "50.00" : true
-    }
+    "values": [
+      {
+        "currency_value": "1.00",
+        "should_use": true
+      },
+      {
+        "currency_value": "2.00",
+        "should_use": true
+      },
+      {
+        "currency_value": "20.00",
+        "should_use": true
+      },
+      {
+        "currency_value": "50.00",
+        "should_use": true
+      },
+      {
+        "currency_value": "0.05",
+        "should_use": true
+      },
+      {
+        "currency_value": "0.10",
+        "should_use": true
+      },
+      {
+        "currency_value": "0.25",
+        "should_use": true
+      },
+      {
+        "currency_value": "0.50",
+        "should_use": true
+      },
+      {
+        "currency_value": "5.00",
+        "should_use": true
+      },
+      {
+        "currency_value": "10.00",
+        "should_use": true
+      },
+      {
+        "currency_value": "100.00",
+        "should_use": true
+      }
+    ]
   }
 }
+
 ```
 
 Response body example:
