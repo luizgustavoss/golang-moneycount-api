@@ -207,19 +207,52 @@ Response body example:
   "description": "12345678",
   "value": 377.98,
   "currency_map": {
-    "map": {
-      "0.05": 0,
-      "0.10": 2,
-      "0.25": 1,
-      "0.50": 1,
-      "1.00": 0,
-      "10.00": 0,
-      "100.00": 3,
-      "2.00": 1,
-      "20.00": 1,
-      "5.00": 1,
-      "50.00": 1
-    },
+    "currencies": [
+      {
+        "currency_value": "5.00",
+        "count": 1
+      },
+      {
+        "currency_value": "0.50",
+        "count": 1
+      },
+      {
+        "currency_value": "0.25",
+        "count": 1
+      },
+      {
+        "currency_value": "0.10",
+        "count": 2
+      },
+      {
+        "currency_value": "100.00",
+        "count": 3
+      },
+      {
+        "currency_value": "50.00",
+        "count": 1
+      },
+      {
+        "currency_value": "10.00",
+        "count": 0
+      },
+      {
+        "currency_value": "0.05",
+        "count": 0
+      },
+      {
+        "currency_value": "20.00",
+        "count": 1
+      },
+      {
+        "currency_value": "2.00",
+        "count": 1
+      },
+      {
+        "currency_value": "1.00",
+        "count": 0
+      }
+    ],
     "remaining_value": 0.03,
     "total_value": 377.98
   }
@@ -307,19 +340,52 @@ Response body example:
   "code": "SUP2021-05",
   "description": "Suppliers Payment May 2021",
   "currency_map": {
-    "map": {
-      "0.05": 1,
-      "0.10": 2,
-      "0.25": 2,
-      "0.50": 0,
-      "1.00": 1,
-      "10.00": 1,
-      "100.00": 4,
-      "2.00": 2,
-      "20.00": 2,
-      "5.00": 2,
-      "50.00": 0
-    },
+    "currencies": [
+      {
+        "currency_value": "20.00",
+        "count": 2
+      },
+      {
+        "currency_value": "1.00",
+        "count": 1
+      },
+      {
+        "currency_value": "0.50",
+        "count": 0
+      },
+      {
+        "currency_value": "0.10",
+        "count": 2
+      },
+      {
+        "currency_value": "100.00",
+        "count": 4
+      },
+      {
+        "currency_value": "0.25",
+        "count": 2
+      },
+      {
+        "currency_value": "10.00",
+        "count": 1
+      },
+      {
+        "currency_value": "50.00",
+        "count": 0
+      },
+      {
+        "currency_value": "5.00",
+        "count": 2
+      },
+      {
+        "currency_value": "2.00",
+        "count": 2
+      },
+      {
+        "currency_value": "0.05",
+        "count": 1
+      }
+    ],
     "remaining_value": 0.03,
     "total_value": 465.78
   },
@@ -329,19 +395,52 @@ Response body example:
       "description": "Supplier 0001 May 2021",
       "value": 129.33,
       "currency_map": {
-        "map": {
-          "0.05": 1,
-          "0.10": 0,
-          "0.25": 1,
-          "0.50": 0,
-          "1.00": 0,
-          "10.00": 0,
-          "100.00": 1,
-          "2.00": 2,
-          "20.00": 1,
-          "5.00": 1,
-          "50.00": 0
-        },
+        "currencies": [
+          {
+            "currency_value": "1.00",
+            "count": 0
+          },
+          {
+            "currency_value": "0.50",
+            "count": 0
+          },
+          {
+            "currency_value": "0.10",
+            "count": 0
+          },
+          {
+            "currency_value": "20.00",
+            "count": 1
+          },
+          {
+            "currency_value": "10.00",
+            "count": 0
+          },
+          {
+            "currency_value": "5.00",
+            "count": 1
+          },
+          {
+            "currency_value": "2.00",
+            "count": 2
+          },
+          {
+            "currency_value": "0.25",
+            "count": 1
+          },
+          {
+            "currency_value": "0.05",
+            "count": 1
+          },
+          {
+            "currency_value": "100.00",
+            "count": 1
+          },
+          {
+            "currency_value": "50.00",
+            "count": 0
+          }
+        ],
         "remaining_value": 0.03,
         "total_value": 129.33
       }
@@ -351,19 +450,52 @@ Response body example:
       "description": "Supplier 0006 May 2021",
       "value": 336.45,
       "currency_map": {
-        "map": {
-          "0.05": 0,
-          "0.10": 2,
-          "0.25": 1,
-          "0.50": 0,
-          "1.00": 1,
-          "10.00": 1,
-          "100.00": 3,
-          "2.00": 0,
-          "20.00": 1,
-          "5.00": 1,
-          "50.00": 0
-        },
+        "currencies": [
+          {
+            "currency_value": "1.00",
+            "count": 1
+          },
+          {
+            "currency_value": "0.25",
+            "count": 1
+          },
+          {
+            "currency_value": "10.00",
+            "count": 1
+          },
+          {
+            "currency_value": "2.00",
+            "count": 0
+          },
+          {
+            "currency_value": "20.00",
+            "count": 1
+          },
+          {
+            "currency_value": "5.00",
+            "count": 1
+          },
+          {
+            "currency_value": "0.50",
+            "count": 0
+          },
+          {
+            "currency_value": "0.10",
+            "count": 2
+          },
+          {
+            "currency_value": "0.05",
+            "count": 0
+          },
+          {
+            "currency_value": "100.00",
+            "count": 3
+          },
+          {
+            "currency_value": "50.00",
+            "count": 0
+          }
+        ],
         "remaining_value": 0,
         "total_value": 336.45
       }
