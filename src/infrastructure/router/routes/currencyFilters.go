@@ -1,15 +1,15 @@
 package routes
 
 import (
-	"moneycount-api/src/controllers"
+	"moneycount-api/src/interfaces/controllers"
 	"net/http"
 )
 
 var currencyFiltersRoutes = []Route{
 	{
-		URI: "/currency-filters",
-		Method: http.MethodGet,
-		Function: controllers.GetCurrencyFilter,
+		URI:                    "/currency-filters",
+		Method:                 http.MethodGet,
+		Function:               controllers.GetCurrencyFilter,
 		RequiresAuthentication: false,
 	},
 }

@@ -3,10 +3,10 @@ package model
 import "errors"
 
 type Currency struct {
-	Code   string    `json:"code"`
-	Name   string    `json:"name"`
-	Symbol string    `json:"symbol"`
-	Values []float64 `json:"values"`
+	Code   string
+	Name   string
+	Symbol string
+	Values []float64
 }
 
 // Validate check if currency has all required attributes

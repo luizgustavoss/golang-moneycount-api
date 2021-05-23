@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"moneycount-api/src/application/services"
-	"moneycount-api/src/domain/model"
-	"moneycount-api/src/responses"
+	"moneycount-api/src/interfaces/resources"
+	"moneycount-api/src/interfaces/responses"
 	"net/http"
 )
 
@@ -18,17 +18,20 @@ func CreateEventEntryMap(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	var command model.EventEntryCommand
-	if error = json.Unmarshal(requestBody, &command); error != nil {
+	var resource resources.EventEntryCommandResource
+	if error = json.Unmarshal(requestBody, &resource); error != nil {
 		responses.ErrorResponse(w, http.StatusBadRequest, error)
 		return
 	}
 
-	eventEntryMap, error := services.CreateEventEntryMap(command)
+	eventEntry := resources.NewEventEntryFromEventEntryResource(resource.EventEntry)
+	currencyFilter := resources.NewCurrencyFilterFromCurrencyFilterResource(resource.Filter)
+
+	eventEntryMap, error := services.CreateEventEntryMap(eventEntry, currencyFilter)
 	if error != nil {
 		responses.ErrorResponse(w, http.StatusBadRequest, error)
 		return
 	}
 
-	responses.JsonResponse(w, http.StatusCreated, eventEntryMap)
+	responses.JsonResponse(w, http.StatusCreated, resources.NewEventEntryMapResource(eventEntryMap))
 }

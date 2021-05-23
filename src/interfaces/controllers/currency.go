@@ -3,11 +3,12 @@ package controllers
 import (
 	"github.com/gorilla/mux"
 	"moneycount-api/src/application/services"
-	"moneycount-api/src/responses"
+	"moneycount-api/src/interfaces/resources"
+	"moneycount-api/src/interfaces/responses"
 	"net/http"
 )
 
-// Get all available currencies
+// GetAllCurrencies get all available CurrencyResource
 func GetAllCurrencies(w http.ResponseWriter, r *http.Request){
 
 	currencies, error := services.ListCurrencies()
@@ -16,10 +17,10 @@ func GetAllCurrencies(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	responses.JsonResponse(w, http.StatusOK, currencies)
+	responses.JsonResponse(w, http.StatusOK, resources.NewCurrencyResourceList(currencies))
 }
 
-// Get a specific currency
+// GetCurrencyByCode get a specific CurrencyResource
 func GetCurrencyByCode(w http.ResponseWriter, r *http.Request){
 
 	pathParameters := mux.Vars(r)
@@ -31,6 +32,6 @@ func GetCurrencyByCode(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	responses.JsonResponse(w, http.StatusOK, currency)
+	responses.JsonResponse(w, http.StatusOK, resources.NewCurrencyResource(currency))
 
 }

@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
-	"moneycount-api/src/router"
+	"moneycount-api/src/infrastructure/router"
 	"net/http"
 )
 

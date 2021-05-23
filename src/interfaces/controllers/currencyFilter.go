@@ -2,14 +2,14 @@ package controllers
 
 import (
 	"moneycount-api/src/application/services"
-	"moneycount-api/src/domain/model"
-	"moneycount-api/src/responses"
+	"moneycount-api/src/interfaces/resources"
+	"moneycount-api/src/interfaces/responses"
 	"net/http"
 	"strings"
 )
 
 
-// Get a specific currency
+// GetCurrencyFilter get a specific CurrencyResource
 func GetCurrencyFilter(w http.ResponseWriter, r *http.Request){
 
 	currencyCode := strings.ToUpper(r.URL.Query().Get("currency-code"))
@@ -20,7 +20,7 @@ func GetCurrencyFilter(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	currencyFilter := model.NewCurrencyFilter(currency)
+	currencyFilter := services.NewCurrencyFilter(currency)
 
-	responses.JsonResponse(w, http.StatusOK, currencyFilter)
+	responses.JsonResponse(w, http.StatusOK, resources.NewCurrencyFilterResource(currencyFilter))
 }

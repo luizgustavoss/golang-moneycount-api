@@ -9,9 +9,9 @@ import (
 )
 
 type CurrencyMap struct {
-	Map            map[string]int32 `json:"map"`
-	RemainingValue float64          `json:"remaining_value"`
-	TotalValue     float64          `json:"total_value"`
+	Map            map[string]int32
+	RemainingValue float64
+	TotalValue     float64
 }
 
 func (c *CurrencyMap) Build(value float64, currency Currency, filter CurrencyFilter) error {
@@ -47,6 +47,7 @@ func (c *CurrencyMap) Build(value float64, currency Currency, filter CurrencyFil
 }
 
 func (c *CurrencyMap) Add(currencyMap CurrencyMap) {
+
 	for k, v := range currencyMap.Map {
 		c.Map[k] += v
 	}
@@ -54,7 +55,6 @@ func (c *CurrencyMap) Add(currencyMap CurrencyMap) {
 	c.RemainingValue += currencyMap.RemainingValue
 	c.TotalValue += currencyMap.TotalValue
 }
-
 
 func NewCurrencyMap() CurrencyMap {
 	return CurrencyMap{make(map[string]int32), 0, 0}

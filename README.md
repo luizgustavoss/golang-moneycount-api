@@ -133,6 +133,32 @@ Request body example:
 }
 ```
 
+Response body example:
+```json
+{
+    "currency_code": "BRL",
+    "code": "12345678",
+    "description": "12345678",
+    "value": 377.98,
+    "currency_map": {
+        "map": {
+            "0.05": 0,
+            "0.10": 2,
+            "0.25": 1,
+            "0.50": 1,
+            "1.00": 0,
+            "10.00": 0,
+            "100.00": 3,
+            "2.00": 1,
+            "20.00": 1,
+            "5.00": 1,
+            "50.00": 1
+        },
+        "remaining_value": 0.03,
+        "total_value": 377.98
+    }
+}
+```
 
 [POST] http://localhost:5000/event-maps
 
@@ -171,5 +197,77 @@ Request body example:
       "50.00" : true
     }
   }
+}
+```
+
+Response body example:
+```json
+{
+    "currency_code": "BRL",
+    "code": "SUP2021-05",
+    "description": "Suppliers Payment May 2021",
+    "currency_map": {
+        "map": {
+            "0.05": 2,
+            "0.10": 1,
+            "0.25": 2,
+            "0.50": 0,
+            "1.00": 1,
+            "10.00": 1,
+            "100.00": 4,
+            "2.00": 2,
+            "20.00": 2,
+            "5.00": 2,
+            "50.00": 0
+        },
+        "remaining_value": 0.08,
+        "total_value": 465.78
+    },
+    "entries": [
+        {
+            "code": "SUP2021-05-0001",
+            "description": "Supplier 0001 May 2021",
+            "value": 129.33,
+            "currency_map": {
+                "map": {
+                    "0.05": 1,
+                    "0.10": 0,
+                    "0.25": 1,
+                    "0.50": 0,
+                    "1.00": 0,
+                    "10.00": 0,
+                    "100.00": 1,
+                    "2.00": 2,
+                    "20.00": 1,
+                    "5.00": 1,
+                    "50.00": 0
+                },
+                "remaining_value": 0.03,
+                "total_value": 129.33
+            }
+        },
+        {
+            "code": "SUP2021-05-0006",
+            "description": "Supplier 0006 May 2021",
+            "value": 336.45,
+            "currency_map": {
+                "map": {
+                    "0.05": 1,
+                    "0.10": 1,
+                    "0.25": 1,
+                    "0.50": 0,
+                    "1.00": 1,
+                    "10.00": 1,
+                    "100.00": 3,
+                    "2.00": 0,
+                    "20.00": 1,
+                    "5.00": 1,
+                    "50.00": 0
+                },
+                "remaining_value": 0.05,
+                "total_value": 336.45
+            }
+        }
+    ]
 }
 ```
