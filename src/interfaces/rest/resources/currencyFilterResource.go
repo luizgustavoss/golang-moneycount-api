@@ -3,8 +3,13 @@ package resources
 import "moneycount-api/src/domain/model"
 
 type CurrencyFilterResource struct {
-	CurrencyCode string          `json:"currency_code"`
-	Values       map[string]bool `json:"values"`
+	CurrencyCode string                       `json:"currency_code"`
+	Values       []CurrencyFilterItemResource `json:"values"`
+}
+
+type CurrencyFilterItemResource struct {
+	CurrencyValue string `json:"currency_value"`
+	ShouldBeUsed  bool   `json:"should_use"`
 }
 
 // NewCurrencyFilterResource creates a new CurrencyFilterResource based on CurrencyFilter model
@@ -13,7 +18,13 @@ func NewCurrencyFilterResource(currencyFilter model.CurrencyFilter) CurrencyFilt
 	var resource CurrencyFilterResource
 
 	resource.CurrencyCode = currencyFilter.CurrencyCode
-	resource.Values = currencyFilter.Values
+
+	for key, value := range currencyFilter.Values {
+		var item CurrencyFilterItemResource
+		item.CurrencyValue = key
+		item.ShouldBeUsed = value
+		resource.Values = append(resource.Values, item)
+	}
 
 	return resource
 }
@@ -24,7 +35,11 @@ func NewCurrencyFilterFromCurrencyFilterResource(resource CurrencyFilterResource
 	var currencyFilter model.CurrencyFilter
 
 	currencyFilter.CurrencyCode = resource.CurrencyCode
-	currencyFilter.Values = resource.Values
+	currencyFilter.Values = make(map[string]bool)
+
+	for _, item := range resource.Values {
+		currencyFilter.Values[item.CurrencyValue] = item.ShouldBeUsed
+	}
 
 	return currencyFilter
 }
