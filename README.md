@@ -58,5 +58,5 @@ $ docker run -p 5000:5000 money-count
 
 ## Endpoints
 
-In the documentation section you can find a [formal definition (OpenApi)](./docs/api) of the API, as well as examples 
+In the [documentation section](./docs/api) you can find a formal definition (OpenApi) of the API, as well as examples 
 of payloads, and a postman collection.
