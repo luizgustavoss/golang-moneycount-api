@@ -5,11 +5,11 @@ import (
 	"net/http"
 )
 
-var eventsRoutes = []Route{
+var eventEntriesRoutes = []Route{
 	{
-		URI:                    "/event-maps",
+		URI:                    "/v1/event-entries-maps",
 		Method:                 http.MethodPost,
-		Function:               controllers.CreateEventMap,
+		Function:               controllers.CreateEventEntryMap,
 		RequiresAuthentication: false,
 	},
 }

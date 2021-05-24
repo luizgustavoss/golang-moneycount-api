@@ -1,0 +1,231 @@
+openapi: 3.0.0
+info:
+  title: Money Count API
+  description: API for monetary counting for values of events and entries.
+  version: 0.1.0
+servers:
+  - url: http://localhost:5000/v1
+    description: Local server for testing purpose
+paths:
+  /currencies:
+    get:
+      summary: Returns a list of currencies available.
+      responses:
+        '200':
+          description: A JSON representation of currencies available
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CurrencyResource'
+  /currencies/{code}:
+    get:
+      summary: Returns a currency for a specific code.
+      parameters:
+        - name: code
+          in: path
+          required: true
+          description: Currency code
+          schema:
+            type: string
+            minimum: 3
+      responses:
+        '200':
+          description: A JSON representation of currency
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrencyResource'
+  /currency-filters:
+    get:
+      summary: Returns a predefined filter for available value of the currency code provided.
+      parameters:
+        - name: currency-code
+          in: query
+          required: true
+          description: Code of the currency for the filter to be build upon
+          schema:
+            type: string
+            minimum: 3
+      responses:
+        '200':
+          description: A JSON representation of the filter for the informed currency code
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrencyFilterResource'
+  /event-entries-maps:
+    post:
+      summary: Builds a currency map for an event entry.
+      requestBody:
+        description: A JSON representation of command for building the event entry currency map
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventEntryCommandResource'
+      responses:
+        '200':
+          description: A JSON representation of a currency map for the event entry
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventEntryMapResource'
+  /event-maps:
+    post:
+      summary: Builds a currency map for an event.
+      requestBody:
+        description: A JSON representation of command for building the event currency map
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventCommandResource'
+      responses:
+        '200':
+          description: A JSON representation of a currency map for the event
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventMapResource'
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+
+    CurrencyResource:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        symbol:
+          type: string
+
+    CurrencyFilterItemResource:
+      type: object
+      properties:
+        currency_value:
+          type: string
+        should_use:
+          type: boolean
+
+    CurrencyFilterResource:
+      type: object
+      properties:
+          currency_code:
+            type: string
+          values:
+            type: array
+            items:
+              $ref: '#/components/schemas/CurrencyFilterItemResource'
+
+    EventEntryResource:
+      type: object
+      properties:
+        code:
+          type: string
+        description:
+          type: boolean
+        value:
+          type: number
+          format: double
+
+    EventResource:
+      type: object
+      properties:
+        code:
+          type: string
+        description:
+          type: boolean
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventEntryResource'
+
+    EventEntryCommandResource:
+      type: object
+      properties:
+        event_entry:
+          $ref: '#/components/schemas/EventEntryResource'
+        filter:
+          $ref: '#/components/schemas/CurrencyFilterResource'
+
+    EventCommandResource:
+      type: object
+      properties:
+        event:
+          $ref: '#/components/schemas/EventResource'
+        filter:
+          $ref: '#/components/schemas/CurrencyFilterResource'
+
+    CurrencyMapItemResource:
+      type: object
+      properties:
+        currency_value:
+          type: string
+        count:
+          type: integer
+          format: int32
+
+    CurrencyMapResource:
+      type: object
+      properties:
+        currency_map:
+        type: array
+        items:
+          $ref: '#/components/schemas/CurrencyMapItemResource'
+        remaining_value:
+          type: number
+          format: double
+        total_value:
+          type: number
+          format: double
+
+    EventEntryMapResource:
+      type: object
+      properties:
+        currency_code:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+        value:
+          type: number
+          format: double
+        currency_map:
+          $ref: '#/components/schemas/CurrencyMapResource'
+
+    EventMapEntryResource:
+      type: object
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+        value:
+          type: number
+          format: double
+        currency_map:
+          $ref: '#/components/schemas/CurrencyMapResource'
+
+    EventMapResource:
+      type: object
+      properties:
+        currency_code:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+        currency_map:
+          $ref: '#/components/schemas/CurrencyMapResource'
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventMapEntryResource'

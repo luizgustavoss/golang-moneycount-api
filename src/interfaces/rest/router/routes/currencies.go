@@ -7,13 +7,13 @@ import (
 
 var currencyRoutes = []Route{
 	{
-		URI:                    "/currencies",
+		URI:                    "/v1/currencies",
 		Method:                 http.MethodGet,
 		Function:               controllers.GetAllCurrencies,
 		RequiresAuthentication: false,
 	},
 	{
-		URI:                    "/currencies/{code}",
+		URI:                    "/v1/currencies/{code}",
 		Method:                 http.MethodGet,
 		Function:               controllers.GetCurrencyByCode,
 		RequiresAuthentication: false,

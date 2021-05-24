@@ -51,7 +51,7 @@ $ go run main.go
 
 Once you have run the project, you can access the available endpoints:
 
- - [GET] http://localhost:5000/currencies
+ - [GET] http://localhost:5000/v1/currencies
 
 Response body example:
 ```json
@@ -69,7 +69,7 @@ Response body example:
 ]
 ```
 
- - [GET] http://localhost:5000/currencies/{code}
+ - [GET] http://localhost:5000/v1/currencies/{code}
 
 Response body example:
 ```json
@@ -81,7 +81,7 @@ Response body example:
 ```
 
 
- - [GET] http://localhost:5000/currency-filters?currency-code={code}
+ - [GET] http://localhost:5000/v1/currency-filters?currency-code={code}
 
 Response body example:
 ```json
@@ -137,7 +137,7 @@ Response body example:
 ```
 
 
- - [POST] http://localhost:5000/event-entries-maps
+ - [POST] http://localhost:5000/v1/event-entries-maps
 
 Request body example:
 ```json
@@ -259,7 +259,7 @@ Response body example:
 }
 ```
 
-[POST] http://localhost:5000/event-maps
+[POST] http://localhost:5000/v1/event-maps
 
 Request body example:
 ```json

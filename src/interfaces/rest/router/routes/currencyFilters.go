@@ -7,7 +7,7 @@ import (
 
 var currencyFiltersRoutes = []Route{
 	{
-		URI:                    "/currency-filters",
+		URI:                    "/v1/currency-filters",
 		Method:                 http.MethodGet,
 		Function:               controllers.GetCurrencyFilter,
 		RequiresAuthentication: false,
