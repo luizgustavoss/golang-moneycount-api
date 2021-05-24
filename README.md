@@ -49,7 +49,8 @@ $ go run main.go
 
 ## Endpoints
 
-Once you have run the project, you can access the available endpoints:
+In the documentation section you can find a [formal definition (OpenApi)](./docs/api) of the API, but as a strait example, 
+once you have run the project, you can access the available endpoints:
 
  - [GET] http://localhost:5000/v1/currencies
 
@@ -135,7 +136,6 @@ Response body example:
   ]
 }
 ```
-
 
  - [POST] http://localhost:5000/v1/event-entries-maps
 
