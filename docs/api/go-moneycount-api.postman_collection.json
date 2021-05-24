@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "2c42546a-41c6-4e52-bd59-fc413c3eebcb",
+		"name": "go-moneycount-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Currency Filter for Currency",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/v1/currency-filters?currency-code=BRL",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"v1",
+						"currency-filters"
+					],
+					"query": [
+						{
+							"key": "currency-code",
+							"value": "BRL"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Currencies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/v1/currencies",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"v1",
+						"currencies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Currencies by Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/v1/currencies/BRL",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"v1",
+						"currencies",
+						"BRL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event Entry Map",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"event_entry\" : {\n\t\t\"code\" : \"12345678\",\n        \"description\" : \"Supplier Payment May 2021\",\n        \"value\" : 377.98\n\t},\n\t\"filter\" : {\n\t\t\"currency_code\" : \"BRL\",\n        \"values\": [\n            {\n                \"currency_value\": \"1.00\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"2.00\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"20.00\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"50.00\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"0.05\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"0.10\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"0.25\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"0.50\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"5.00\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"10.00\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"100.00\",\n                \"should_use\": true\n            }\n        ]\n\t}\t\n}"
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/v1/event-entries-maps",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"v1",
+						"event-entries-maps"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event Map",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"event\" : {\n\t\t\"code\" : \"SUP2021-05\",\n        \"description\" : \"Suppliers Payment May 2021\",\n        \"entries\" : [\n            {\n                \"code\" : \"SUP2021-05-0001\",\n                \"description\" : \"Supplier 0001 May 2021\",\n                \"value\" : 129.33\n            },\n            {\n                \"code\" : \"SUP2021-05-0006\",\n                \"description\" : \"Supplier 0006 May 2021\",\n                \"value\" : 336.45\n            }\n        ]\n\t},\n\t\"filter\" : {\n\t\t\"currency_code\" : \"BRL\",\n        \"values\": [\n            {\n                \"currency_value\": \"1.00\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"2.00\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"20.00\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"50.00\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"0.05\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"0.10\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"0.25\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"0.50\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"5.00\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"10.00\",\n                \"should_use\": true\n            },\n            {\n                \"currency_value\": \"100.00\",\n                \"should_use\": true\n            }\n        ]\n\t}\t\n}\n"
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/v1/event-maps",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"v1",
+						"event-maps"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost"
+		},
+		{
+			"key": "port",
+			"value": "5000"
+		}
+	]
+}
