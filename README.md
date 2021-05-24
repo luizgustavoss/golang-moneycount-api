@@ -46,6 +46,15 @@ $ git clone git@github.com:luizgustavoss/golang-moneycount-api.git && cd golang-
 $ go run main.go
 ```
 
+## Running with Docker
+
+You can build an image fo the project and run with docker:
+
+```
+$ docker build . -t money-count
+
+$ docker run -p 5000:5000 money-count
+```
 
 ## Endpoints
 
