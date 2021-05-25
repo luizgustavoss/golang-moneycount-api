@@ -176,9 +176,9 @@ components:
       type: object
       properties:
         currency_map:
-        type: array
-        items:
-          $ref: '#/components/schemas/CurrencyMapItemResource'
+          type: array
+          items:
+            $ref: '#/components/schemas/CurrencyMapItemResource'
         remaining_value:
           type: number
           format: double
