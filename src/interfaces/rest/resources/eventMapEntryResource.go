@@ -9,7 +9,6 @@ type EventMapEntryResource struct {
 	CurrencyMap CurrencyMapResource `json:"currency_map"`
 }
 
-
 // NewEventMapEntryResource creates a new EventMapEntryResource based on EventMapEntry model
 func NewEventMapEntryResource(eventMapEntry model.EventMapEntry) EventMapEntryResource {
 

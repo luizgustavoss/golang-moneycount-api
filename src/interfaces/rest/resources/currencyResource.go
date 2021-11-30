@@ -3,9 +3,9 @@ package resources
 import "moneycount-api/src/domain/model"
 
 type CurrencyResource struct {
-	Code   string    `json:"code"`
-	Name   string    `json:"name"`
-	Symbol string    `json:"symbol"`
+	Code   string `json:"code"`
+	Name   string `json:"name"`
+	Symbol string `json:"symbol"`
 }
 
 // NewCurrencyResource creates a new CurrencyResource based on Currency model

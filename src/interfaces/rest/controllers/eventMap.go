@@ -10,7 +10,7 @@ import (
 )
 
 // CreateEventMap creates a currency map for the event based on a filter
-func CreateEventMap(w http.ResponseWriter, r *http.Request){
+func CreateEventMap(w http.ResponseWriter, r *http.Request) {
 
 	requestBody, error := ioutil.ReadAll(r.Body)
 	if error != nil {

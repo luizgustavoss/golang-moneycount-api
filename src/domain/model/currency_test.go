@@ -4,7 +4,7 @@ import "testing"
 
 func TestCurrency(t *testing.T) {
 
-	t.Run("should identify invalid code", func(t *testing.T){
+	t.Run("should identify invalid code", func(t *testing.T) {
 		currency := Currency{Name: "Real", Symbol: "R$", Values: []float64{0.05, 0.10}}
 		expected := currency.Validate()
 
@@ -13,7 +13,7 @@ func TestCurrency(t *testing.T) {
 		}
 	})
 
-	t.Run("should identify invalid name", func(t *testing.T){
+	t.Run("should identify invalid name", func(t *testing.T) {
 		currency := Currency{Code: "BRL", Symbol: "R$", Values: []float64{0.05, 0.10}}
 		expected := currency.Validate()
 
@@ -22,7 +22,7 @@ func TestCurrency(t *testing.T) {
 		}
 	})
 
-	t.Run("should identify invalid symbol", func(t *testing.T){
+	t.Run("should identify invalid symbol", func(t *testing.T) {
 		currency := Currency{Code: "BRL", Name: "Real", Values: []float64{0.05, 0.10}}
 		expected := currency.Validate()
 
@@ -31,7 +31,7 @@ func TestCurrency(t *testing.T) {
 		}
 	})
 
-	t.Run("should identify invalid values", func(t *testing.T){
+	t.Run("should identify invalid values", func(t *testing.T) {
 		currency := Currency{Code: "BRL", Name: "Real", Symbol: "R$"}
 		expected := currency.Validate()
 

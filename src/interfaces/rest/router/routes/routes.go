@@ -25,4 +25,3 @@ func ConfigureRoutes(r *mux.Router) *mux.Router {
 	}
 	return r
 }
-

@@ -16,7 +16,7 @@ type CurrencyMap struct {
 
 func (c *CurrencyMap) Build(value float64, currency Currency, filter CurrencyFilter) error {
 
-	if currency.Code != filter.CurrencyCode{
+	if currency.Code != filter.CurrencyCode {
 		return errors.New("invalid currency for filter")
 	}
 
@@ -35,7 +35,7 @@ func (c *CurrencyMap) Build(value float64, currency Currency, filter CurrencyFil
 			c.Map[key] = int32(math.Trunc(count))
 			if r, error := round(math.Mod(c.RemainingValue, v)); error == nil {
 				c.RemainingValue = r
-			} else{
+			} else {
 				return error
 			}
 		}
@@ -61,7 +61,7 @@ func NewCurrencyMap() CurrencyMap {
 func round(value float64) (float64, error) {
 	if value, error := strconv.ParseFloat(fmt.Sprintf("%.4f", value), 64); error == nil {
 		return value, nil
-	} else{
+	} else {
 		return value, error
 	}
 }

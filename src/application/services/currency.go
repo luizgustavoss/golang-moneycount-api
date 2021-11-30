@@ -24,16 +24,15 @@ func GetCurrencyByCode(code string) (model.Currency, error) {
 	var currency model.Currency
 
 	currencies, error := ListCurrencies()
-	if error != nil{
+	if error != nil {
 		return currency, error
 	}
 
 	for _, c := range currencies {
-		if c.Code == code{
+		if c.Code == code {
 			currency = c
 			break
 		}
 	}
 	return currency, nil
 }
-

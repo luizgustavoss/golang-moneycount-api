@@ -8,9 +8,8 @@ import (
 	"strings"
 )
 
-
 // GetCurrencyFilter get a specific CurrencyResource
-func GetCurrencyFilter(w http.ResponseWriter, r *http.Request){
+func GetCurrencyFilter(w http.ResponseWriter, r *http.Request) {
 
 	currencyCode := strings.ToUpper(r.URL.Query().Get("currency-code"))
 

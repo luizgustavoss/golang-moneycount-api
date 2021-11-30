@@ -5,7 +5,7 @@ import (
 )
 
 // CreateEventEntryMap creates an EventEntryMap based on provided EventEntry info
-func CreateEventEntryMap(eventEntry model.EventEntry, currencyFilter model.CurrencyFilter) (model.EventEntryMap, error){
+func CreateEventEntryMap(eventEntry model.EventEntry, currencyFilter model.CurrencyFilter) (model.EventEntryMap, error) {
 
 	var eventEntryMap model.EventEntryMap
 	var currency, error = GetCurrencyByCode(currencyFilter.CurrencyCode)
@@ -22,4 +22,3 @@ func CreateEventEntryMap(eventEntry model.EventEntry, currencyFilter model.Curre
 
 	return eventEntryMap, nil
 }
-

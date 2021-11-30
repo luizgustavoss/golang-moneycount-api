@@ -9,7 +9,7 @@ import (
 )
 
 // GetAllCurrencies get all available CurrencyResource
-func GetAllCurrencies(w http.ResponseWriter, r *http.Request){
+func GetAllCurrencies(w http.ResponseWriter, r *http.Request) {
 
 	currencies, error := services.ListCurrencies()
 	if error != nil {
@@ -21,7 +21,7 @@ func GetAllCurrencies(w http.ResponseWriter, r *http.Request){
 }
 
 // GetCurrencyByCode get a specific CurrencyResource
-func GetCurrencyByCode(w http.ResponseWriter, r *http.Request){
+func GetCurrencyByCode(w http.ResponseWriter, r *http.Request) {
 
 	pathParameters := mux.Vars(r)
 	code := pathParameters["code"]
